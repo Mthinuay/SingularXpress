@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;700&display=swap');
+ 
+ /* Add employee css form*/
+ /* Background */
+
+.full-screen-bg {
+  background-color: #002D40;
+  height: 100vh;             /* Use height instead of min-height */
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;           /* Makes sure it covers the full screen */
+  top: 0;
+  left: 0;
+  z-index: -1;               /* If needed, you can adjust to layer it under fixed content */
+}
+/* Shape 1: Transparent fill, no border */
+
+.shape-1 {
+  content: '';
+  position: fixed;
+  width: 37.97px;
+  height: 37.97px;
+  background-color: #163e4f;
+  border-radius: 50%;
+  top: 39.5vh;      /* matches your original top */
+  left: 6.8vw;      /* matches original left */
+  transform: translate(-50%, -50%) rotate(-85.5deg);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Shape 2: Dotted border */
+.shape-2 {
+  content: '';
+  position: fixed;
+  width: 249.26px;
+  height: 249.26px;
+  background-color: transparent;
+  border: 2px dashed #163e4f;
+  border-radius: 50%;
+  top: 20vh;         /* moved down from 10.6vh */
+  left: 12vw;      /* same left position */
+  transform: translate(-50%, -50%) rotate(-85.5deg);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Shape 3: Solid border */
+.shape-3 {
+  content: '';
+  position: fixed;
+  width: 147.19px;
+  height: 147.19px;
+  background-color: transparent;
+  border: 2px solid #163e4f;
+  border-radius: 50%;
+  top: 10vh;         /* original top */
+  left: 19vw;     /* original left */
+  transform: translate(-50%, -50%) rotate(-85.5deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Shape 4: Semi-transparent fill (same as Shape 1) */
+.shape-4 {
+  content: '';
+  position: fixed;
+  width: 192.46px;  /* original 192.46px, slightly adjusted for readability */
+  height: 192.46px;
+  background-color: #163e4f;
+  border-radius: 50%;
+  top: 14.5vh;       /* original top */
+ right: 16vw;    /* reflect original left ~88.8vw */
+  transform: translate(50%, -50%) rotate(-85.5deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Shape 5: Dotted border */
+.shape-5 {
+  position: fixed;
+  width: 249.26px;
+  height: 249.26px;
+  background-color: transparent;
+   border: 2px dashed #163e4f;
+  border-radius: 50%;
+  top: 85vh;      /* original top */
+  right: 11vw;     /* reflect original left ~94.7vw */
+  transform: translate(50%, -50%) rotate(-85.5deg);
+  z-index: 0;
+  pointer-events: none;
+}
+/* Main container with gradient background */
+.center-frame {
+  width: 61.8vw;               /* ~1186px */
+  height: 86.7vh;              /* ~828px */
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* Equal halves */
+  background: linear-gradient(
+    135deg,
+    #EEEEF1,
+    #EFF1F3,
+    #E7EAEB,
+    #D6D6D9,
+    #C4C4C5
+  );
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.left-frame {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Center all content inside this container */
+.left-frame-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* centers horizontally */
+  justify-content: center; /* centers vertically */
+  flex: 1;
+  text-align: center;
+  margin: auto;            /* vertical + horizontal centering */
+}
+
+
+/* This used to be .left-frame-bottom-container */
+.left-frame-bottom {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  gap: 26px;
+  align-items: flex-start;  /* aligns children to the left */
+}
+
+
+
+.right-frame {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* Move the whole right frame upward slightly */
+  position: relative;
+  top: -80px; /* Adjust this value as needed */
+}
+
+.right-form-container {
+  width: 360px;
+  height: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 150px; /* Adjust this value to move it further down */
+}
+
+.right-frame-content {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centers .right-form-container */
+}
+.right-frame-bottom {
+  width: 100%;              /* match .name-surname-container (which is 360px) */
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;         /* space from Save button */
+  padding: 0 5px;           /* match input padding */
+  box-sizing: border-box;
+  color: #002D40;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+.right-frame-bottom-text {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: #002D40;
+  margin: 0;
+  padding: 0;
+}
+
+
+.align-right {
+  display: block;
+  text-align: right;
+  padding: 0;
+  margin-right: 80px;
+  margin-bottom: -30px; /* reduce vertical space */
+}
+
+
+.align-left {
+  display: block;
+  text-align: left;
+  padding: 0;
+  margin-left: 20px; /* moves block 20px right from the left edge */
+}
+
+
+
+.headings-container {
+  width: 360px;          /* match the width of city-postal & left-frame-bottom */
+  margin: 0 auto 30px;   /* center horizontally, with bottom margin */
+  text-align: center;
+}
+
+.center-logo {
+  width: 279.32px;
+  height: 35.14px;
+  margin: 0 0 30px -5px; /* align to the left with bottom margin */
+  text-align: left;
+  display: flex;
+  justify-content: flex-start; /* align contents to the left */
+  align-items: center;
+}
+
+
+.center-logo-text-bold,
+.center-logo-text-light {
+  font-family: 'Anek Bangla', serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 2%;
+  user-select: none;
+}
+
+.center-logo-text-bold {
+  font-weight: 700;
+  color: #002D40;
+}
+
+.center-logo-text-light {
+  font-weight: 300;
+  color: #006088;
+}
+
+.new-employee-title {
+  width: 360px;          /* match headings container width */
+  height: 26px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: #002D40;
+  text-align: left;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  margin: 0 auto 20px auto;
+}
+.new-employee-subtitle {
+  width: 338px;
+  height: auto;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0;
+  color: #002D40;
+  text-align: left;
+  margin-left: -20px; /* or tweak as needed */
+}
+
+.employee-word {
+  display: block;
+  text-align: center;
+  transform: translateX(-25px); /* move slightly left */
+}
+
+
+
+.personal-details-heading {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 0;
+    margin: 0 auto 30px auto;
+  color: #006088;
+  display: flex;        
+  align-items: center;
+  gap: 5px; 
+}
+
+.name-surname-container {
+  display: flex;
+  flex-direction: column; /* stack inputs vertically */
+  width: 360px;
+  gap:15px;              /* space between inputs */
+  border-radius: 5px;
+  /* remove fixed height so inputs can set their own height */
+}
+
+.name-input,
+.surname-input {
+  width: 100%;            /* full width */
+  height: 33px;           /* fixed height per input */
+  border: none;
+  border-bottom: 1.5px solid #006088;  /* blue bottom border on each input */
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  background-color: transparent; /* transparent background */
+}
+
+.name-input::placeholder,
+.surname-input::placeholder {
+  color: black;
+}
+/* Container for city & postal code inputs side by side */
+.city-postal-container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.city-input,
+.postal-input {
+  flex: 1; /* split space evenly */
+  height: 33px;
+  border: none;
+  border-bottom: 1.5px solid #006088;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+.gender-select-wrapper {
+  position: relative;
+  width: 100%;    /* match select width */
+  height: 33px;   /* match select height */
+}
+
+.gender-select {
+  width: 100%;
+  height: 33px;
+  border: none;
+  border-bottom: 1.5px solid #006088;
+  padding-left: 5px;
+  padding-right: 30px; /* space for icon */
+  padding-bottom: 5px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  color: black;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;  /* so clicks pass through to select */
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.input-label {
+  font-size: 14px;
+  color: #002D40;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+.grey-text::placeholder {
+  color: #3D3D3D;
+  font-weight: 400;
+}
+
+.blue-text::placeholder{
+  color:#002D40;
+  font-weight:400;
+
+}
+
+
+
+.bottom-line-container {
+  width: 360px;
+  border-bottom: 1.5px solid #006088;
+  padding-bottom: 5px;
+}
+
+.save-button {
+  font-family: 'Instrument Sans', sans-serif;
+  width: 360px;              /* Fill width */
+  height: 37px;              /* Fixed height */
+  background-color: #006088; /* Button color */
+  border: none;
+  border-radius: 10px;       /* Rounded corners */
+  padding: 0 39px;           /* Left + Right padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                 /* Space between content if you add an icon */
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+   margin-top: 25px;
+}
+
+.save-button:hover {
+  background-color: #004d6b; /* Optional: darker on hover */
+}
+
+/* Edit employee page css */
+.edit-employee-background {
+  position: fixed;
+  top: 0;
+  left: 375px; /* Start after the sidebar */
+  right: 0;
+  bottom: 0;
+  padding: 26px 20px 20px 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(
+    135deg,
+    #EEEEF1,
+    #EFF1F3,
+    #E7EAEB,
+    #D6D6D9,
+    #C4C4C5
+  );
+  color: black;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Left top corner fill */
+.corner-fill-top {
+  position: fixed;
+  top: 0;
+  left: 375px;       /* exactly at the menu's right edge */
+  width: 20px;       /* same as border radius */
+  height: 20px;      /* same as border radius */
+  background-color: #002D40;
+  z-index: 0;        /* behind edit-employee-background */
+  pointer-events: none;
+}
+
+/* Left bottom corner fill */
+.corner-fill-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 375px;       /* exactly at the menu's right edge */
+  width: 20px;
+  height: 20px;
+  background-color: #002D40;
+  z-index: 0;
+  pointer-events: none;
+}
+.edit-employee-top-container {
+  display: grid;
+  width: 100%;
+  height: 185px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.grid-item {
+  background-color: #f0f0f0; /* Just a placeholder background */
+  border: 1px solid #ccc;
+  padding: 10px;
+  /* Center content inside the grid item */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
