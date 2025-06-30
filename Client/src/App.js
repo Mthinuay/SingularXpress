@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+
+import { Routes, Route, useLocation } from "react-router-dom";
+import MenuBar from "./Components/MenuBar";
+import AddEmployee from "./Components/AddEmployee";
+import EditEmployee from "./Components/EditEmployee"; // Make sure the path is correct
+import "./MenuBar.css";
 
 function App() {
+  const location = useLocation();
+  const isAddEmployeePage = location.pathname === "/addEmployee";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ display: "flex" }}>
+      {/* Show MenuBar on all pages except addEmployee */}
+      {!isAddEmployeePage && <MenuBar />}
+
+      <div style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/addEmployee" element={<AddEmployee />} />
+          <Route path="/editEmployee" element={<EditEmployee />} />
+          {/* Add other routes here */}
+        </Routes>
+      </div>
     </div>
   );
 }
