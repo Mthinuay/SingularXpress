@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Gcf0w2ikEq8=",
   "success": true,
   "projectFilePath": "C:\\Users\\MMabena.SINGULAR\\Desktop\\SingularExpress-1\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
@@ -8,5 +9,11 @@
     "C:\\Users\\MMabena.SINGULAR\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.17\\microsoft.windowsdesktop.app.ref.8.0.17.nupkg.sha512",
     "C:\\Users\\MMabena.SINGULAR\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.17\\microsoft.aspnetcore.app.ref.8.0.17.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "EQlVwUPXTeA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MMkhatshane\\Documents\\SingularExpressHR\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 1f62503a6c22a702d651b0f3bee3a99d062d2d25
   "logs": []
 }
