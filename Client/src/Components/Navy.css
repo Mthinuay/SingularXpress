@@ -493,29 +493,6 @@
   z-index: 0;
   pointer-events: none;
 }
-.edit-employee-top-container {
-  display: grid;
-  width: 100%;
-  height: 185px;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 10px;
-  column-gap: 10px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
-
-.grid-item {
-  background-color: #f0f0f0; /* Just a placeholder background */
-  border: 1px solid #ccc;
-  padding: 10px;
-  /* Center content inside the grid item */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
 
 
 
