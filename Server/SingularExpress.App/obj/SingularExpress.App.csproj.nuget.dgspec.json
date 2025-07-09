@@ -1,50 +1,32 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\MMabena.SINGULAR\\Desktop\\SingularExpress-1\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {}
+    "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MMabena.SINGULAR\\Desktop\\SingularExpress-1\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {
+    "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MMabena.SINGULAR\\Desktop\\SingularExpress-1\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
+        "projectUniqueName": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
         "projectName": "SingularExpress.App",
-        "projectPath": "C:\\Users\\MMabena.SINGULAR\\Desktop\\SingularExpress-1\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
-        "packagesPath": "C:\\Users\\MMabena.SINGULAR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MMabena.SINGULAR\\Desktop\\SingularExpress-1\\Server\\SingularExpress.App\\obj\\",
-=======
-    "C:\\Users\\MMkhatshane\\Documents\\SingularExpressHR\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\MMkhatshane\\Documents\\SingularExpressHR\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\MMkhatshane\\Documents\\SingularExpressHR\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
-        "projectName": "SingularExpress.App",
-        "projectPath": "C:\\Users\\MMkhatshane\\Documents\\SingularExpressHR\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
-        "packagesPath": "C:\\Users\\MMkhatshane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MMkhatshane\\Documents\\SingularExpressHR\\SingularExpress\\Server\\SingularExpress.App\\obj\\",
->>>>>>> 1f62503a6c22a702d651b0f3bee3a99d062d2d25
+        "projectPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
+        "packagesPath": "C:\\Users\\NMazibuko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\MMabena.SINGULAR\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-          "C:\\Users\\MMkhatshane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NMazibuko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 1f62503a6c22a702d651b0f3bee3a99d062d2d25
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-<<<<<<< HEAD
-=======
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
->>>>>>> 1f62503a6c22a702d651b0f3bee3a99d062d2d25
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -79,30 +61,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.17, 8.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.17, 8.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.17, 8.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
->>>>>>> 1f62503a6c22a702d651b0f3bee3a99d062d2d25
         }
       }
     }

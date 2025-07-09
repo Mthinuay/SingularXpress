@@ -9,15 +9,16 @@ namespace SingularExpress.Models
     {
         public ModelDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ModelDbContext>();
-
-            // Adjust the path and connection string as needed for your environment
+            // Build configuration to read appsettings.json (adjust path if needed)
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(Directory.GetCurrentDirectory())  // Usually the root where you run dotnet ef
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
+            var optionsBuilder = new DbContextOptionsBuilder<ModelDbContext>();
+
             var connectionString = configuration.GetConnectionString("DefaultConnection");
+
             optionsBuilder.UseSqlServer(connectionString);
 
             return new ModelDbContext(optionsBuilder.Options);
