@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import "./TaxTableUpload.css";
 
@@ -16,9 +16,6 @@ export default function TaxTableUpload() {
   const [isUploading, setIsUploading] = useState(false);
 
   const fileInputRef = useRef(null);
-
-  useEffect(() => console.log("[DEBUG] Year changed:", year), [year]);
-  useEffect(() => console.log("[DEBUG] File changed:", file), [file]);
 
   const handleYearChange = (e) => {
     setError("");
@@ -54,8 +51,8 @@ export default function TaxTableUpload() {
     try {
       setIsUploading(true);
       const formData = new FormData();
-      formData.append("Year", year);
-      formData.append("File", selected);
+      formData.append("year", year);
+      formData.append("file", selected);
 
       const response = await axios.post(
         "https://localhost:7137/api/tax-tables/upload",
@@ -80,6 +77,68 @@ export default function TaxTableUpload() {
 
   return (
     <div className="full-screen-bg">
+      {/* Background Shapes */}
+      <div
+        className="shape"
+        style={{ left: "94.82%", top: "21.51%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "88.36%", top: "21.51%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "81.21%", top: "21.34%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "76.16%", top: "21.91%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "68.29%", top: "21.57%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "60.6%", top: "22.71%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "53.72%", top: "21.34%", background: "#006088" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "47.76%", top: "21.34%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "39.58%", top: "20.83%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "35.98%", top: "3.02%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "27.51%", top: "22.25%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "19.25%", top: "19.86%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "11.29%", top: "20.94%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "7.26%", top: "0%", background: "#002D40" }}
+      />
+      <div
+        className="shape"
+        style={{ left: "0%", top: "20.83%", background: "#002D40" }}
+      />
+
       <div className="center-frame">
         <div className="content-centered">
           <div className="headings-container">
@@ -87,9 +146,12 @@ export default function TaxTableUpload() {
               <span className="center-logo-text-bold">singular</span>
               <span className="center-logo-text-light">express</span>
             </div>
-            <h1 className="upload-title">Upload tax table</h1>
-            <p className="file-type-text">Only Excel files (.xls, .xlsx) are supported.</p>
+            <h1 className="upload-title">Upload tax Table</h1>
+            <p className="file-type-text">
+              Only Excel sheet, CSV, PDF, and Sheet file types are supported.
+            </p>
 
+            {/* Dropdown wrapper with relative positioning */}
             <div className="gender-select-wrapper">
               <select
                 className="name-input"
@@ -105,6 +167,14 @@ export default function TaxTableUpload() {
                   </option>
                 ))}
               </select>
+
+              {/* Dropdown arrow image */}
+              <img
+                className="dropdown-arrow"
+                src="/images/arrow_drop_down_circle.png"
+                alt="Dropdown Arrow"
+                aria-hidden="true"
+              />
             </div>
 
             {error && <p className="error-message">{error}</p>}
@@ -112,23 +182,23 @@ export default function TaxTableUpload() {
           </div>
 
           <div className="upload-section">
-            <p className="drop-files-text">Drop files here</p>
-            <p className="or-text">or</p>
-
-            <div className="gender-select-wrapper">
-              <label className="upload-file-button">
-                {isUploading ? "Uploading..." : "Upload file"}
-                <input
-                  type="file"
-                  accept=".xls,.xlsx"
-                  ref={fileInputRef}
-                  onChange={handleAutoUpload}
-                  className="upload-button"
-                />
-              </label>
-
+            <div className="dashed-box">
+              <p className="drop-files-text">Drop files here</p>
+              <p className="or-text">or</p>
+              <div className="upload-button-container">
+                <label className="upload-file-button">
+                  {isUploading ? "Uploading..." : "Upload file"}
+                  <input
+                    type="file"
+                    accept=".xls,.xlsx"
+                    ref={fileInputRef}
+                    onChange={handleAutoUpload}
+                    className="upload-hidden-input"
+                  />
+                </label>
+              </div>
               {file && (
-                <p style={{ color: "#002D40", fontSize: "13px", marginTop: "8px" }}>
+                <p className="selected-file-text">
                   Selected: <strong>{file.name}</strong>
                 </p>
               )}

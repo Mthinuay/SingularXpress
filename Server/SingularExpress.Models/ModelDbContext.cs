@@ -5,12 +5,20 @@ namespace SingularExpress.Models
 {
     public class ModelDbContext : DbContext
     {
-        public ModelDbContext(DbContextOptions<ModelDbContext> options)
-            : base(options)
-        {
-        }
+        public ModelDbContext(DbContextOptions<ModelDbContext> options) : base(options) { }
 
-        public DbSet<TaxTable> TaxTables { get; set; } = null!;
-        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<TaxTable> TaxTables { get; set; }
+        public DbSet<TaxTableEntry> TaxTableEntries { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TaxTableEntry>()
+                .Property(t => t.AnnualEquivalent)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<TaxTableEntry>()
+                .Property(t => t.TaxUnder65)
+                .HasPrecision(18, 2);
+        }
     }
 }

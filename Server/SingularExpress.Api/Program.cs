@@ -1,46 +1,47 @@
 using Microsoft.EntityFrameworkCore;
 using SingularExpress.Models;
-using Swashbuckle.AspNetCore.Filters;
-using SingularExpress.Api;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Ensure Uploads directory exists
 var uploadsPath = Path.Combine(builder.Environment.ContentRootPath, "Uploads");
 if (!Directory.Exists(uploadsPath))
 {
     Directory.CreateDirectory(uploadsPath);
 }
 
-// 🔁 Add CORS configuration
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // 👈 or your actual frontend origin
+        policy.WithOrigins("http://localhost:3000")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
-builder.Services.AddControllers();
-
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 builder.Services.AddDbContext<ModelDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SupportNonNullableReferenceTypes();
-    c.OperationFilter<FileUploadOperationFilter>();
-
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "SingularExpress API",
         Version = "v1"
+    });
+    c.MapType<IFormFile>(() => new OpenApiSchema { Type = "string", Format = "binary" });
+    c.AddSecurityDefinition("multipart/form-data", new OpenApiSecurityScheme
+    {
+        Name = "multipart/form-data",
+        Type = SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header
     });
 });
 
@@ -52,7 +53,6 @@ builder.Services.AddLogging(logging =>
 
 var app = builder.Build();
 
-// 🔁 Apply CORS policy before any endpoints
 app.UseCors("AllowFrontend");
 
 if (app.Environment.IsDevelopment())
