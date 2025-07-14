@@ -9,6 +9,11 @@ namespace SingularExpress.Models
 
         public DbSet<TaxTable> TaxTables { get; set; }
         public DbSet<TaxTableEntry> TaxTableEntries { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

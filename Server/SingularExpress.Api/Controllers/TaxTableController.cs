@@ -279,7 +279,13 @@ namespace SingularExpress.Api.Controllers
                     var worksheet = workbook.Worksheet(1);
 
                     var taxTableEntries = new List<TaxTableEntry>();
-                    int rowCount = worksheet.LastRowUsed().RowNumber();
+                    var lastRow = worksheet.LastRowUsed();
+                    if (lastRow == null)
+                    {
+                        _logger.LogWarning("No rows found in the Excel worksheet.");
+                        return BadRequest(new { message = "No data found in the Excel file." });
+                    }
+                    int rowCount = lastRow.RowNumber();
                     _logger.LogInformation("Processing Excel file with {RowCount} rows", rowCount);
 
                     for (int row = 3; row <= rowCount; row++)
