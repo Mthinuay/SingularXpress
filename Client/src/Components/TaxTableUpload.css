@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;700&family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@500;700&display=swap');
 
+:root {
+  --box-width: 885px;
+  --box-height: 430px;
+
+  --dash-thickness: 5px;
+  --dash-color: black;
+
+  --top-bottom-dashes: 12;
+  --side-dashes: 5;
+
+  /* Available space for dashes (full box dimensions) */
+  --horizontal-space: var(--box-width);
+  --vertical-space: var(--box-height);
+
+  /* Size of one dash + gap unit, including space for corners */
+  --horizontal-unit: calc(var(--horizontal-space) / (var(--top-bottom-dashes) + 2));
+  --vertical-unit: calc(var(--vertical-space) / (var(--side-dashes) + 2));
+
+  /* Corner size matches the dash length */
+  --corner-size: calc(var(--horizontal-unit) * 0.3);
+  --corner-border-width: 5px;
+}
+
 .full-screen-bg {
   background-color: #002D40;
   height: 100vh;
@@ -17,7 +40,7 @@
 }
 
 .shape-1 {
-  position: absolute;
+  position: fixed;
   width: 37.97px;
   height: 37.97px;
   background-color: #163e4f;
@@ -30,7 +53,7 @@
 }
 
 .shape-2 {
-  position: absolute;
+  position: fixed;
   width: 249.26px;
   height: 249.26px;
   background-color: transparent;
@@ -44,7 +67,7 @@
 }
 
 .shape-3 {
-  position: absolute;
+  position: fixed;
   width: 147.19px;
   height: 147.19px;
   background-color: transparent;
@@ -58,27 +81,27 @@
 }
 
 .shape-4 {
-  position: absolute;
+  position: fixed;
   width: 192.46px;
   height: 192.46px;
   background-color: #163e4f;
   border-radius: 50%;
   top: 14.5vh;
-  right: 45vw;
+  right: 16vw;
   transform: translate(50%, -50%) rotate(-85.5deg);
   z-index: 0;
   pointer-events: none;
 }
 
 .shape-5 {
-  position: absolute;
+  position: fixed;
   width: 249.26px;
   height: 249.26px;
   background-color: transparent;
   border: 2px dashed #163e4f;
   border-radius: 50%;
   top: 85vh;
-  right: 35vw;
+  right: 11vw;
   transform: translate(50%, -50%) rotate(-85.5deg);
   z-index: 0;
   pointer-events: none;
@@ -185,8 +208,7 @@
   background-color: transparent;
   margin: 0 auto;
   font-family: 'Instrument Sans', sans-serif;
-
-   appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -196,6 +218,16 @@
   width: 360px;
   height: 33px;
   margin: 0 auto 15px;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
 }
 
 .error-message {
@@ -228,15 +260,15 @@
 }
 
 .dashed-box {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 10px;
-  gap: 30px;
-  width: 885px;
-  height: 409px;
-
+  padding: 55px 20px 20px 20px;
+  gap: 25px;
+  width: var(--box-width);
+  height: var(--box-height);
   background: linear-gradient(
     180deg,
     #EEEEF1 0%,
@@ -245,43 +277,109 @@
     #D6D6D9 79.77%,
     #C4C4C5 100%
   );
-  
-  border: 5px solid transparent;
-  border-image: repeating-linear-gradient(
-    to right,
-    #000000 0,
-    #000000 34px,
-    transparent 34px,
-    transparent 68px
-  ) 5 round;
-  
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  box-sizing: border-box;
 }
 
-.dropdown-arrow {
+.border-top,
+.border-bottom,
+.border-left,
+.border-right {
   position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  pointer-events: none; /* So it doesn't block clicking the select */
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
 }
 
+.border-top,
+.border-bottom {
+  height: var(--dash-thickness);
+  width: var(--horizontal-space);
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--dash-color),
+    var(--dash-color) calc(var(--horizontal-unit) * 0.6),
+    transparent calc(var(--horizontal-unit) * 0.6),
+    transparent var(--horizontal-unit)
+  );
+  left: 0;
+}
+
+.border-top {
+  top: 0;
+}
+
+.border-bottom {
+  bottom: 0;
+}
+
+.border-left,
+.border-right {
+  width: var(--dash-thickness);
+  height: var(--vertical-space);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--dash-color),
+    var(--dash-color) calc(var(--vertical-unit) * 0.6),
+    transparent calc(var(--vertical-unit) * 0.6),
+    transparent var(--vertical-unit)
+  );
+  top: 0;
+}
+
+.border-left {
+  left: 0;
+}
+
+.border-right {
+  right: 0;
+}
+
+.corner {
+  position: absolute;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  border: var(--corner-border-width) solid var(--dash-color);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.corner-top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
 
 .drop-files-text {
   max-width: 885px;
   width: 100%;
-  height: 26px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 26px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,10 +388,8 @@
   margin: 0;
 }
 
-
 .or-text {
-  width: 885px;
-  height: 21px;
+  width: 100%;
   font-family: 'Instrument Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -301,10 +397,6 @@
   line-height: 21px;
   text-align: center;
   color: #002D40;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
   margin: 0;
 }
 
@@ -319,9 +411,6 @@
   height: 20.04px;
   background: #002D40;
   border-radius: 11.0222px;
-  flex: none;
-  order: 2;
-  flex-grow: 0;
 }
 
 .upload-file-button {
@@ -336,9 +425,6 @@
   align-items: center;
   text-align: center;
   color: #FFFFFF;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   margin: 0;
   cursor: pointer;
   background: none;
@@ -360,10 +446,6 @@
   color: #002D40;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 13px;
-  margin-top: 8px;
   text-align: center;
-  flex: none;
-  order: 3;
-  align-self: stretch;
-  flex-grow: 0;
+  margin: 0;
 }

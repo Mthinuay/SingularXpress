@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj": {}
+    "C:\\Users\\NMAzibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj": {
+    "C:\\Users\\NMAzibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj",
+        "projectUniqueName": "C:\\Users\\NMAzibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj",
         "projectName": "SingularExpress.Models",
-        "projectPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj",
+        "projectPath": "C:\\Users\\NMAzibuko\\SingularExpress\\Server\\SingularExpress.Models\\SingularExpress.Models.csproj",
         "packagesPath": "C:\\Users\\NMazibuko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models\\obj\\",
+        "outputPath": "C:\\Users\\NMAzibuko\\SingularExpress\\Server\\SingularExpress.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
