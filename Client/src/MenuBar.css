@@ -129,20 +129,10 @@
   object-fit: contain;
 }
 
-.edit-employee-top-container {
-  display: grid;
-  width: 100%;
-  height: 185px;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 10px;
-  column-gap: 10px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
+
 
 .grid-item {
-  background-color: #f0f0f0; /* Just a placeholder background */
+  background-color: #f0f0f0; 
   border: 1px solid #ccc;
   padding: 10px;
   /* Center content inside the grid item */
@@ -171,7 +161,7 @@
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 2%;
-  color:#002D40; /* Black text */
+  color:#002D40; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,10 +175,14 @@
   justify-content: flex-end;
   align-items: center;
   box-sizing: border-box;
-  margin-left: auto; /* pushes it to the far right */
+  margin-left: auto;
   margin-right: 35px;
-   margin-top: -100px;  /* align with right margin spec */
+  margin-top: -100px; /* align with right margin spec */
+  position: relative; /* enable z-index */
+  z-index: 10;        /* bring on top to avoid being blocked */
+  pointer-events: auto; /* ensure it can receive clicks */
 }
+
 
 .edit-button {
 width: 150px;
@@ -217,7 +211,6 @@ width: 150px;
   right: 70px;                   /* leave 70px margin on right */
   height: 496px;
   padding: 30px 50px;
-  
   box-sizing: border-box;
   background: transparent; /* slight background for visibility */
   z-index: 2;
@@ -231,13 +224,13 @@ width: 150px;
   border-top-right-radius: 10px;  /* Rounded top-right corner */
   border-bottom-left-radius: 0;   /* Square bottom-left corner */
   border-bottom-right-radius: 0;  /* Square bottom-right corner */
-  background-color: #C7D9E5; /* Your specified color */
+  background-color: #C7D9E5; 
   display: flex;
   align-items: center;
 
   box-sizing: border-box;
-  box-shadow: none;     /* Optional: remove shadow if undesired */
-  border: none;         /* Remove border */
+  box-shadow: none;    
+  border: none;        
   margin-left: 370px;
   margin-right: 70px;   /* Align flush with right margin */
 
@@ -287,14 +280,14 @@ width: 150px;
   width: 1384px;                  /* same width as row-6 */
   display: flex;
   justify-content: space-between; /* equal spacing between fields */
-  gap: 65px;                       /* optional, already spaced by justify */
+  gap: 65px;                     
   margin-bottom: 20px;            /* spacing between rows */
 }
 
 /* Each field in row-3 */
 .fields-container.row-3 .field {
-  width: 418px;                   /* Fill width as specified */
-  height: 70px;                   /* Hug height */
+  width: 418px;                  
+  height: 70px;                 
 }
 
 .field {
@@ -332,64 +325,114 @@ width: 150px;
   font-weight: 400;
   font-size: 14px;
   outline-offset: 2px;
+  
+}
+.edit-employee-top-container {
+  position: relative;
+  height: 200px; 
+  display: flex;
+  align-items: flex-start;
+  padding-left: 20px;
+   margin-top: -180px;
 }
 
+/* Image block */
 .photo-block {
-  border: 2px solid black !important;
-  grid-row: 1 / span 2;
-  grid-column: 1 / span 1;
+  
   width: 241px;
   height: 185px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #f0f0f0; /* optional */
+  padding: 0;
+  background-color: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 0; /* removed rounded corners */
-  margin-top: -180px;
-  margin-left: 20px; /* nudge right by 20px */
+  border-radius: 0;
+  margin-right: 30px;
 }
 
-
+/* Image styling */
 .photo-block img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* cover to maintain aspect ratio and fill block */
+  object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
-
-
+/* Text beside image */
 .photo-text-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-left: -600px;   /* move left */
-  margin-top: -130px;   /* move upward */
-  height: 185px;
-  box-sizing: border-box;
+  align-items: flex-start; /* Always align children (title, subtitle) to the left */
 }
 
-
+/* Name */
 .photo-text-container .title {
   font-family: 'Anek Bangla', sans-serif;
   font-weight: 700;
   font-size: 40px;
-  line-height: 1; /* or 100% */
-  letter-spacing: 0.02em;
   color: #006088;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Job Title */
 .photo-text-container .subtitle {
   font-family: 'Anek Bangla', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.02em;
   color: #006088;
-  margin-top: 6px;
-  margin-left: -200px; /* move to the left */
+  margin-top: -10px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 0;
+}
+
+
+
+/* Active tab color */
+.heading-item.selected {
+  color: #01A19A;
+}
+
+.toast-confirm-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast-confirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.toast-confirm-btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.toast-confirm-btn.confirm {
+  background-color: #4caf50;
+}
+
+.toast-confirm-btn.confirm:hover {
+  background-color: #45a049;
+}
+
+.toast-confirm-btn.cancel {
+  background-color: #f44336;
+}
+
+.toast-confirm-btn.cancel:hover {
+  background-color: #da190b;
 }

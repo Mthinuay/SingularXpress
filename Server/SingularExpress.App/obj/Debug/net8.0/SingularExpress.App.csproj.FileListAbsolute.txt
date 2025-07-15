@@ -1,0 +1,12 @@
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\bin\Debug\net8.0\SingularExpress.App.deps.json
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\bin\Debug\net8.0\SingularExpress.App.dll
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\bin\Debug\net8.0\SingularExpress.App.pdb
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.AssemblyInfoInputs.cache
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.AssemblyInfo.cs
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.csproj.CoreCompileInputs.cache
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.sourcelink.json
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.dll
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\refint\SingularExpress.App.dll
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\SingularExpress.App.pdb
+C:\Users\NMAzibuko\SingularExpress\Server\SingularExpress.App\obj\Debug\net8.0\ref\SingularExpress.App.dll
