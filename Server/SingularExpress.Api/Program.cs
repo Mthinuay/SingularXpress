@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SingularExpress.Models;
+using SingularExpress.Interfaces;
+using SingularExpress.Repository;
+using SingularExpress.Services;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 
@@ -11,6 +14,7 @@ if (!Directory.Exists(uploadsPath))
     Directory.CreateDirectory(uploadsPath);
 }
 
+// Configure CORS (combined the two policies into one)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -21,13 +25,26 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Add Controllers with NewtonsoftJson settings
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 });
-builder.Services.AddDbContext<ModelDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// DbContext configuration
+builder.Services.AddDbContext<ModelDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.MigrationsAssembly("SingularExpress.Models")));
+
+// Dependency injection for repositories and services
+builder.Services.AddScoped<ModelDbContextFactory>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+
+// Swagger/OpenAPI setup
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -45,6 +62,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// Logging
 builder.Services.AddLogging(logging =>
 {
     logging.AddConsole();
@@ -53,6 +71,7 @@ builder.Services.AddLogging(logging =>
 
 var app = builder.Build();
 
+// Use CORS policy globally
 app.UseCors("AllowFrontend");
 
 if (app.Environment.IsDevelopment())
@@ -67,11 +86,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Serve static files from Uploads folder
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(uploadsPath),
     RequestPath = "/Uploads"
 });
+
+app.UseAuthorization();
 
 app.MapControllers();
 

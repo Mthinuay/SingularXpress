@@ -1,0 +1,88 @@
+
+
+namespace SingularExpress.Api.Mappers
+{
+    public static class EmployeeMapper
+    {
+        public static EmployeeDto ToDto(Employee emp)
+        {
+            return new EmployeeDto
+            {
+                EmployeeNumber = emp.EmployeeNumber,
+                FirstName = emp.FirstName,
+                LastName = emp.LastName,
+                MaidenName = emp.MaidenName,
+                Title = emp.Title,
+                DateOfBirth = emp.DateOfBirth?.ToString("yyyy-MM-dd"),
+                Initials = emp.Initials,
+                IdType = emp.IdType,
+                IdNumber = emp.IdNumber,
+                PreferredName = emp.PreferredName,
+                Gender = emp.Gender,
+                MiddleName = emp.MiddleName,
+                ContactNumber = emp.ContactNumber,
+                Nationality = emp.Nationality,
+                Citizenship = emp.Citizenship,
+                Disability = emp.Disability,
+                DisabilityType = emp.DisabilityType,
+                Email = emp.Email,
+                MaritalStatus = emp.MaritalStatus,
+                HomeAddress = emp.HomeAddress,
+                City = emp.City,
+                PostalCode = emp.PostalCode,
+                StartDate = emp.StartDate == default ? null : emp.StartDate.ToString("yyyy-MM-dd"),
+                Department = emp.Department,
+                JobTitle = emp.JobTitle,
+                EmployeeStatus = emp.EmployeeStatus,
+                ReportsTo = emp.ReportsTo,
+                DocumentPath = emp.DocumentPath
+            };
+        }
+
+        public static Employee ToModel(EmployeeDto dto)
+        {
+            return new Employee
+            {
+                EmployeeNumber = dto.EmployeeNumber,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                MaidenName = dto.MaidenName,
+                Title = dto.Title,
+                DateOfBirth = ParseDate(dto.DateOfBirth),
+                Initials = dto.Initials,
+                IdType = dto.IdType,
+                IdNumber = dto.IdNumber,
+                PreferredName = dto.PreferredName,
+                Gender = dto.Gender,
+                MiddleName = dto.MiddleName,
+                ContactNumber = dto.ContactNumber,
+                Nationality = dto.Nationality,
+                Citizenship = dto.Citizenship,
+                Disability = dto.Disability,
+                DisabilityType = dto.DisabilityType,
+                Email = dto.Email,
+                MaritalStatus = dto.MaritalStatus,
+                HomeAddress = dto.HomeAddress,
+                City = dto.City,
+                PostalCode = dto.PostalCode,
+                StartDate = ParseDate(dto.StartDate) ?? default,
+                Department = dto.Department,
+                JobTitle = dto.JobTitle,
+                EmployeeStatus = dto.EmployeeStatus,
+                ReportsTo = dto.ReportsTo,
+                DocumentPath = dto.DocumentPath
+            };
+        }
+
+        private static DateTime? ParseDate(string dateString)
+        {
+            if (string.IsNullOrWhiteSpace(dateString))
+                return null;
+
+            if (DateTime.TryParseExact(dateString, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out var date))
+                return date;
+
+            return null;
+        }
+    }
+}
