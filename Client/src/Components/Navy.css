@@ -1,11 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;700&display=swap');
- 
- /* Add employee css form*/
- /* Background */
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;700&family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@500;700&display=swap');
 
+:root {
+  --box-width: 885px;
+  --box-height: 430px;
+  --dash-thickness: 5px;
+  --dash-color: black;
+  --top-bottom-dashes: 12;
+  --side-dashes: 5;
+  --horizontal-space: var(--box-width);
+  --vertical-space: var(--box-height);
+  --horizontal-unit: calc(var(--horizontal-space) / (var(--top-bottom-dashes) + 2));
+  --vertical-unit: calc(var(--vertical-space) / (var(--side-dashes) + 2));
+  --corner-size: calc(var(--horizontal-unit) * 0.3);
+  --corner-border-width: 5px;
+}
+
+/* Background */
 .full-screen-bg {
   background-color: #002D40;
-  height: 100vh;             /* Use height instead of min-height */
+  height: 100vh;
   width: 100vw;
   padding: 0;
   margin: 0;
@@ -13,69 +26,65 @@
   justify-content: center;
   align-items: center;
   color: white;
-  position: fixed;           /* Makes sure it covers the full screen */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;               /* If needed, you can adjust to layer it under fixed content */
+  z-index: -1;
 }
-/* Shape 1: Transparent fill, no border */
 
+/* Shape 1: Transparent fill, no border */
 .shape-1 {
-  content: '';
   position: fixed;
   width: 37.97px;
   height: 37.97px;
   background-color: #163e4f;
   border-radius: 50%;
-  top: 39.5vh;      /* matches your original top */
-  left: 6.8vw;      /* matches original left */
+  top: 39.5vh;
+  left: 6.8vw;
   transform: translate(-50%, -50%) rotate(-85.5deg);
-  z-index: 10;
+  z-index: 0;
   pointer-events: none;
 }
 
 /* Shape 2: Dotted border */
 .shape-2 {
-  content: '';
   position: fixed;
   width: 249.26px;
   height: 249.26px;
   background-color: transparent;
   border: 2px dashed #163e4f;
   border-radius: 50%;
-  top: 20vh;         /* moved down from 10.6vh */
-  left: 12vw;      /* same left position */
+  top: 20vh;
+  left: 12vw;
   transform: translate(-50%, -50%) rotate(-85.5deg);
-  z-index: 10;
+  z-index: 0;
   pointer-events: none;
 }
 
 /* Shape 3: Solid border */
 .shape-3 {
-  content: '';
   position: fixed;
   width: 147.19px;
   height: 147.19px;
   background-color: transparent;
   border: 2px solid #163e4f;
   border-radius: 50%;
-  top: 10vh;         /* original top */
-  left: 19vw;     /* original left */
+  top: 10vh;
+  left: 19vw;
   transform: translate(-50%, -50%) rotate(-85.5deg);
   z-index: 0;
   pointer-events: none;
 }
 
-/* Shape 4: Semi-transparent fill (same as Shape 1) */
+/* Shape 4: Semi-transparent fill */
 .shape-4 {
-  content: '';
   position: fixed;
-  width: 192.46px;  /* original 192.46px, slightly adjusted for readability */
+  width: 192.46px;
   height: 192.46px;
   background-color: #163e4f;
   border-radius: 50%;
-  top: 14.5vh;       /* original top */
- right: 16vw;    /* reflect original left ~88.8vw */
+  top: 14.5vh;
+  right: 16vw;
   transform: translate(50%, -50%) rotate(-85.5deg);
   z-index: 0;
   pointer-events: none;
@@ -87,21 +96,20 @@
   width: 249.26px;
   height: 249.26px;
   background-color: transparent;
-   border: 2px dashed #163e4f;
+  border: 2px dashed #163e4f;
   border-radius: 50%;
-  top: 85vh;      /* original top */
-  right: 11vw;     /* reflect original left ~94.7vw */
+  top: 85vh;
+  right: 11vw;
   transform: translate(50%, -50%) rotate(-85.5deg);
   z-index: 0;
   pointer-events: none;
 }
+
 /* Main container with gradient background */
 .center-frame {
-  width: 61.8vw;               /* ~1186px */
-  height: 86.7vh;              /* ~828px */
+  width: 61.8vw;
+  height: 86.7vh;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;  /* Equal halves */
   background: linear-gradient(
     135deg,
     #EEEEF1,
@@ -113,8 +121,12 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
+/* Add employee css form */
 .left-frame {
   width: 100%;
   height: 100%;
@@ -124,28 +136,23 @@
   position: relative;
 }
 
-/* Center all content inside this container */
 .left-frame-centered {
   display: flex;
   flex-direction: column;
-  align-items: center;     /* centers horizontally */
-  justify-content: center; /* centers vertically */
+  align-items: center;
+  justify-content: center;
   flex: 1;
   text-align: center;
-  margin: auto;            /* vertical + horizontal centering */
+  margin: auto;
 }
 
-
-/* This used to be .left-frame-bottom-container */
 .left-frame-bottom {
   display: flex;
   flex-direction: column;
   width: 360px;
   gap: 26px;
-  align-items: flex-start;  /* aligns children to the left */
+  align-items: flex-start;
 }
-
-
 
 .right-frame {
   width: 100%;
@@ -154,10 +161,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  /* Move the whole right frame upward slightly */
   position: relative;
-  top: -80px; /* Adjust this value as needed */
+  top: -80px;
 }
 
 .right-form-container {
@@ -166,28 +171,30 @@
   display: flex;
   flex-direction: column;
   gap: 26px;
-  margin-top: 150px; /* Adjust this value to move it further down */
+  margin-top: 150px;
 }
 
 .right-frame-content {
   width: 100%;
   display: flex;
-  justify-content: center; /* centers .right-form-container */
+  justify-content: center;
 }
+
 .right-frame-bottom {
-  width: 100%;              /* match .name-surname-container (which is 360px) */
+  width: 100%;
   min-height: 104px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 30px;         /* space from Save button */
-  padding: 0 5px;           /* match input padding */
+  margin-top: 30px;
+  padding: 0 5px;
   box-sizing: border-box;
   color: #002D40;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 12px;
   line-height: 18px;
 }
+
 .right-frame-bottom-text {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
@@ -199,48 +206,42 @@
   padding: 0;
 }
 
-
 .align-right {
   display: block;
   text-align: right;
   padding: 0;
   margin-right: 80px;
-  margin-bottom: -30px; /* reduce vertical space */
+  margin-bottom: -30px;
 }
-
 
 .align-left {
   display: block;
   text-align: left;
   padding: 0;
-  margin-left: 20px; /* moves block 20px right from the left edge */
+  margin-left: 20px;
 }
 
-
-
 .headings-container {
-  width: 360px;          /* match the width of city-postal & left-frame-bottom */
-  margin: 0 auto 30px;   /* center horizontally, with bottom margin */
+  width: 360px;
+  margin: 20px auto 0;
   text-align: center;
 }
 
 .center-logo {
   width: 279.32px;
   height: 35.14px;
-  margin: 0 0 30px -5px; /* align to the left with bottom margin */
-  text-align: left;
+  margin: 0 auto 20px;
   display: flex;
-  justify-content: flex-start; /* align contents to the left */
+  justify-content: center;
   align-items: center;
 }
-
 
 .center-logo-text-bold,
 .center-logo-text-light {
   font-family: 'Anek Bangla', serif;
   font-size: 40px;
   line-height: 100%;
-  letter-spacing: 2%;
+  letter-spacing: 0.02em;
   user-select: none;
 }
 
@@ -255,7 +256,7 @@
 }
 
 .new-employee-title {
-  width: 360px;          /* match headings container width */
+  width: 360px;
   height: 26px;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -269,6 +270,7 @@
   justify-content: left;
   margin: 0 auto 20px auto;
 }
+
 .new-employee-subtitle {
   width: 338px;
   height: auto;
@@ -279,16 +281,14 @@
   letter-spacing: 0;
   color: #002D40;
   text-align: left;
-  margin-left: -20px; /* or tweak as needed */
+  margin-left: -20px;
 }
 
 .employee-word {
   display: block;
   text-align: center;
-  transform: translateX(-25px); /* move slightly left */
+  transform: translateX(-25px);
 }
-
-
 
 .personal-details-heading {
   font-family: 'Instrument Sans', sans-serif;
@@ -296,28 +296,27 @@
   font-size: 14px;
   line-height: 26px;
   letter-spacing: 0;
-    margin: 0 auto 30px auto;
+  margin: 0 auto 30px auto;
   color: #006088;
-  display: flex;        
+  display: flex;
   align-items: center;
-  gap: 5px; 
+  gap: 5px;
 }
 
 .name-surname-container {
   display: flex;
-  flex-direction: column; /* stack inputs vertically */
+  flex-direction: column;
   width: 360px;
-  gap:15px;              /* space between inputs */
+  gap: 15px;
   border-radius: 5px;
-  /* remove fixed height so inputs can set their own height */
 }
 
 .name-input,
 .surname-input {
-  width: 100%;            /* full width */
-  height: 33px;           /* fixed height per input */
+  width: 100%;
+  height: 33px;
   border: none;
-  border-bottom: 1.5px solid #006088;  /* blue bottom border on each input */
+  border-bottom: 1.5px solid #006088;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
@@ -325,14 +324,14 @@
   outline: none;
   box-sizing: border-box;
   border-radius: 0;
-  background-color: transparent; /* transparent background */
+  background-color: transparent;
 }
 
 .name-input::placeholder,
 .surname-input::placeholder {
   color: black;
 }
-/* Container for city & postal code inputs side by side */
+
 .city-postal-container {
   display: flex;
   width: 100%;
@@ -341,7 +340,7 @@
 
 .city-input,
 .postal-input {
-  flex: 1; /* split space evenly */
+  flex: 1;
   height: 33px;
   border: none;
   border-bottom: 1.5px solid #006088;
@@ -353,10 +352,12 @@
   box-sizing: border-box;
   background-color: transparent;
 }
+
 .gender-select-wrapper {
   position: relative;
-  width: 100%;    /* match select width */
-  height: 33px;   /* match select height */
+  width: 100%;
+  height: 33px;
+  margin: 0 auto 15px;
 }
 
 .gender-select {
@@ -365,7 +366,7 @@
   border: none;
   border-bottom: 1.5px solid #006088;
   padding-left: 5px;
-  padding-right: 30px; /* space for icon */
+  padding-right: 30px;
   padding-bottom: 5px;
   font-size: 14px;
   outline: none;
@@ -378,13 +379,14 @@
   color: black;
 }
 
-.dropdown-icon {
+.dropdown-icon,
+.dropdown-arrow {
   position: absolute;
   right: 5px;
   top: 50%;
   width: 20px;
   height: 20px;
-  pointer-events: none;  /* so clicks pass through to select */
+  pointer-events: none;
   transform: translateY(-50%);
   user-select: none;
 }
@@ -397,20 +399,15 @@
   margin-bottom: 5px;
 }
 
-
-
 .grey-text::placeholder {
   color: #3D3D3D;
   font-weight: 400;
 }
 
-.blue-text::placeholder{
-  color:#002D40;
-  font-weight:400;
-
+.blue-text::placeholder {
+  color: #002D40;
+  font-weight: 400;
 }
-
-
 
 .bottom-line-container {
   width: 360px;
@@ -420,33 +417,33 @@
 
 .save-button {
   font-family: 'Instrument Sans', sans-serif;
-  width: 360px;              /* Fill width */
-  height: 37px;              /* Fixed height */
-  background-color: #006088; /* Button color */
+  width: 360px;
+  height: 37px;
+  background-color: #006088;
   border: none;
-  border-radius: 10px;       /* Rounded corners */
-  padding: 0 39px;           /* Left + Right padding */
+  border-radius: 10px;
+  padding: 0 39px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;                 /* Space between content if you add an icon */
+  gap: 10px;
   color: white;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
-   margin-top: 25px;
+  margin-top: 25px;
 }
 
 .save-button:hover {
-  background-color: #004d6b; /* Optional: darker on hover */
+  background-color: #004d6b;
 }
 
 /* Edit employee page css */
 .edit-employee-background {
   position: fixed;
   top: 0;
-  left: 375px; /* Start after the sidebar */
+  left: 375px;
   right: 0;
   bottom: 0;
   padding: 26px 20px 20px 20px;
@@ -470,26 +467,277 @@
   z-index: 1;
 }
 
-/* Left top corner fill */
 .corner-fill-top {
   position: fixed;
   top: 0;
-  left: 375px;       /* exactly at the menu's right edge */
-  width: 20px;       /* same as border radius */
-  height: 20px;      /* same as border radius */
-  background-color: #002D40;
-  z-index: 0;        /* behind edit-employee-background */
-  pointer-events: none;
-}
-
-/* Left bottom corner fill */
-.corner-fill-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 375px;       /* exactly at the menu's right edge */
+  left: 375px;
   width: 20px;
   height: 20px;
   background-color: #002D40;
   z-index: 0;
   pointer-events: none;
+}
+
+.corner-fill-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 375px;
+  width: 20px;
+  height: 20px;
+  background-color: #002D40;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Tax Table Upload css */
+.content-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.upload-title {
+  width: 360px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: 0;
+  color: #002D40;
+  text-align: center;
+  margin: 0 auto 20px;
+}
+
+.file-type-text {
+  width: 360px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: #002D40;
+  text-align: center;
+  margin: 0 auto 20px;
+}
+
+.error-message {
+  color: #ff0000;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 12px;
+  margin: 10px auto 0;
+  text-align: center;
+  width: 360px;
+}
+
+.success-message {
+  color: #006088;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 12px;
+  margin: 10px auto 0;
+  text-align: center;
+  width: 360px;
+}
+
+.upload-section {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 905px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashed-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 55px 20px 20px 20px;
+  gap: 25px;
+  width: var(--box-width);
+  height: var(--box-height);
+  background: linear-gradient(
+    180deg,
+    #EEEEF1 0%,
+    #EFF1F3 16.19%,
+    #E7EAEB 50.25%,
+    #D6D6D9 79.77%,
+    #C4C4C5 100%
+  );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.border-top,
+.border-bottom,
+.border-left,
+.border-right {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.border-top,
+.border-bottom {
+  height: var(--dash-thickness);
+  width: var(--horizontal-space);
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--dash-color),
+    var(--dash-color) calc(var(--horizontal-unit) * 0.6),
+    transparent calc(var(--horizontal-unit) * 0.6),
+    transparent var(--horizontal-unit)
+  );
+  left: 0;
+}
+
+.border-top {
+  top: 0;
+}
+
+.border-bottom {
+  bottom: 0;
+}
+
+.border-left,
+.border-right {
+  width: var(--dash-thickness);
+  height: var(--vertical-space);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--dash-color),
+    var(--dash-color) calc(var(--vertical-unit) * 0.6),
+    transparent calc(var(--vertical-unit) * 0.6),
+    transparent var(--vertical-unit)
+  );
+  top: 0;
+}
+
+.border-left {
+  left: 0;
+}
+
+.border-right {
+  right: 0;
+}
+
+.corner {
+  position: absolute;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  border: var(--corner-border-width) solid var(--dash-color);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.corner-top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.drop-files-text {
+  max-width: 885px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #002D40;
+  margin: 0;
+}
+
+.or-text {
+  width: 100%;
+  font-family: 'Instrument Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #002D40;
+  margin: 0;
+}
+
+.upload-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11.0222px;
+  gap: 5.51px;
+  width: 100.04px;
+  height: 20.04px;
+  background: #002D40;
+  border-radius: 11.0222px;
+}
+
+.upload-file-button {
+  width: 102px;
+  height: 15px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.upload-hidden-input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.selected-file-text {
+  color: #002D40;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
 }

@@ -5514,11 +5514,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models.Tests\\SingularExpress.Models.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.Models.Tests\\SingularExpress.Models.Tests.csproj",
       "projectName": "SingularExpress.Models.Tests",
-      "projectPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models.Tests\\SingularExpress.Models.Tests.csproj",
+      "projectPath": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.Models.Tests\\SingularExpress.Models.Tests.csproj",
       "packagesPath": "C:\\Users\\NMazibuko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models.Tests\\obj\\",
+      "outputPath": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.Models.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

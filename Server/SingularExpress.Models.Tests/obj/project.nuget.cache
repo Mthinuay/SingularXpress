@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JLv47qeznLs=",
+  "dgSpecHash": "uUrYfMOEM6c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.Models.Tests\\SingularExpress.Models.Tests.csproj",
+  "projectFilePath": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.Models.Tests\\SingularExpress.Models.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NMazibuko\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\NMazibuko\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

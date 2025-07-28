@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {}
+    "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {
+    "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
+        "projectUniqueName": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
         "projectName": "SingularExpress.App",
-        "projectPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
+        "projectPath": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.App\\SingularExpress.App.csproj",
         "packagesPath": "C:\\Users\\NMazibuko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NMazibuko\\SingularExpress\\Server\\SingularExpress.App\\obj\\",
+        "outputPath": "C:\\Users\\NMazibuko\\SingularXpress\\Server\\SingularExpress.App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

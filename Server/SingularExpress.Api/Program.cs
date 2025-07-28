@@ -1,7 +1,11 @@
+
 using Microsoft.EntityFrameworkCore;
 using SingularExpress.Models;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
+using SingularExpress.Api.Services;
+using SingularExpress.Api.Repositories;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,10 +27,14 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 });
+
 builder.Services.AddDbContext<ModelDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ITaxTableService, TaxTableService>();
+builder.Services.AddScoped<ITaxTableRepository, TaxTableRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

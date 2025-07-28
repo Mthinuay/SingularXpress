@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SingularExpress.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc65a98ff3cc2443bd5af34fe8423968c90004e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0e17144bbb31d68306a70f0231bc987515f353f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SingularExpress.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SingularExpress.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

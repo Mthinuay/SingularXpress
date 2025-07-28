@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "40xZz6GSh7w=",
+  "dgSpecHash": "bnRu91+lLng=",
   "success": true,
-  "projectFilePath": "C:\\Users\\NMAzibuko\\SingularExpress\\Server\\SingularExpress.Api\\SingularExpress.Api.csproj",
+  "projectFilePath": "C:\\Users\\NMazibuko\\SingularXpress\\server\\SingularExpress.Api\\SingularExpress.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NMazibuko\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\NMazibuko\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
